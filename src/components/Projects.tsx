@@ -1,30 +1,34 @@
 import React from 'react';
 import { Github, Globe, Tag } from 'lucide-react';
+import imgListaTarefas from '../midias/img-lista-de-tarefas.jpg';
+import imgPizzaria from '../midias/img-pizzaria.jpg';
+import imgCalculadora from '../midias/img-calculadora.jpg';
+
 
 const Projects = () => {
   const projects = [
     {
-      title: 'Projeto 1',
-      description: 'Descrição do projeto 1. Adicione aqui os detalhes do seu projeto.',
-      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97',
+      title: 'Pizzaria Online',
+      description: 'Este é um site de pizzaria desenvolvido com HTML, CSS e JavaScript, permitindo a seleção de pizzas de diferentes tamanhos, adição ao carrinho e cálculo dinâmico do subtotal e descontos. O projeto possui uma interface responsiva e interativa, focada na experiência do usuário.',
+      image: imgPizzaria,
+      technologies: ['HTML', 'CSS', 'JavaScript'],
+      githubUrl: 'https://github.com/leocastrob/pizzaria.git',
+      liveUrl: '#'
+    },
+    {
+      title: 'Calculadora de Motorista de App',
+      description: 'Este é uma Calculadora de Lucro para Motoristas de Aplicativo, desenvolvida com React e TypeScript. O projeto permite estimar ganhos, despesas e lucro líquido com base em variáveis como consumo do carro, preço do combustível e quilometragem rodada. Possui uma interface moderna com shadcn-ui e Tailwind CSS, gráficos interativos e cálculos automáticos para auxiliar na tomada de decisões financeiras.',
+      image: imgCalculadora,
       technologies: ['React', 'TypeScript', 'TailwindCSS'],
-      githubUrl: '#',
-      liveUrl: '#'
+      githubUrl: 'https://github.com/leocastrob/Calculadoramotoristadeapp.git',
+      
     },
     {
-      title: 'Projeto 2',
-      description: 'Descrição do projeto 2. Adicione aqui os detalhes do seu projeto.',
-      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97',
-      technologies: ['Node.js', 'Express', 'PostgreSQL'],
-      githubUrl: '#',
-      liveUrl: '#'
-    },
-    {
-      title: 'Projeto 3',
-      description: 'Descrição do projeto 3. Adicione aqui os detalhes do seu projeto.',
-      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97',
-      technologies: ['React', 'Node.js', 'MongoDB'],
-      githubUrl: '#',
+      title: 'Lista de Tarefas',
+      description: 'Este é um To-Do List em React TypeScript com persistência via localStorage, permitindo adicionar, concluir, excluir e filtrar tarefas. O projeto possui modo claro/escuro , componentes reutilizáveis e boas práticas como tipagem forte e ganchos personalizados.',
+      image: imgListaTarefas,
+      technologies: ['React', 'TypeScript', 'TailwindCSS'],
+      githubUrl: 'https://github.com/leocastrob/listadetarefas',
       liveUrl: '#'
     }
   ];
@@ -36,7 +40,7 @@ const Projects = () => {
         <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-teal-400 mx-auto"></div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
         {projects.map((project, index) => (
           <div
             key={index}
@@ -81,8 +85,6 @@ const Projects = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
                 >
-                  <Globe className="w-5 h-5" />
-                  Demo
                 </a>
               </div>
             </div>
