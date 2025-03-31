@@ -4,7 +4,7 @@ import { Code, Database, Globe, Layout, Server } from 'lucide-react';
 const About = () => {
   const skills = [
     { name: 'Front-end', icon: <Layout className="w-6 h-6" />, items: ['HTML', 'CSS', 'JavaScript', 'React','Angular','Vue', 'TypeScript', 'TailwindCSS'] },
-    { name: 'Back-end', icon: <Server className="w-6 h-6" />, items: ['Node.js', 'Express', 'API REST'] },
+    { name: 'Back-end', icon: <Server className="w-6 h-6" />, items: ['Node.js','Python', 'Express', 'API REST'] },
     { name: 'Database', icon: <Database className="w-6 h-6" />, items: ['SQL', 'NoSQL'] },
     { name: 'Tools & Others', icon: <Code className="w-6 h-6" />, items: ['Git', 'GitHub', 'VS Code', 'Figma'] },
   ];
