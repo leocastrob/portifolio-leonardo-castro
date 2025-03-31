@@ -8,9 +8,32 @@ const Contact = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setStatus('loading');
+
+    const formspreeEndpoint = 'https://formspree.io/f/xeoalnpk'; 
+
+    try {
+      const response = await fetch(formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -29,7 +52,6 @@ const Contact = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        {/* Contact Form */}
         <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
@@ -92,10 +114,13 @@ const Contact = () => {
             <button
               type="submit"
               className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-teal-400 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
+              disabled={status === 'loading'}
             >
-              <Send className="w-5 h-5" />
-              Enviar Mensagem
+              {status === 'loading' ? 'Enviando...' : <><Send className="w-5 h-5" /> Enviar Mensagem</>}
             </button>
+
+            {status === 'success' && <p className="text-green-400 text-center mt-2">Mensagem enviada com sucesso!</p>}
+            {status === 'error' && <p className="text-red-400 text-center mt-2">Ocorreu um erro, tente novamente.</p>}
           </form>
         </div>
 
@@ -111,13 +136,14 @@ const Contact = () => {
               </p>
               <div className="flex items-center gap-2 text-gray-300">
                 <Mail className="w-5 h-5 text-teal-400" />
-                <a href="mailto:leonardobarbosadecastro@gmail.com" className="hover:text-white transition-colors">
+                <a href="leonardobarbosadecastro@gmail.com" className="hover:text-white transition-colors">
                   leonardobarbosadecastro@gmail.com
                 </a>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );
