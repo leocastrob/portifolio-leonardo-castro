@@ -1,10 +1,11 @@
 import React from 'react';
 import { Download, ArrowDown } from 'lucide-react';
+import fotoPerfil from '../midias/foto-perfil.jpeg';
 
 const Home = () => {
   const handleDownloadCV = () => {
    
-    const cvUrl = 'src/midias/Currículo Leonardo B. de Castro.pdf';
+    const cvUrl = 'src/midias/Curriculo Leonardo Castro.pdf';
     window.open(cvUrl, '_blank');
   };
 
@@ -25,7 +26,7 @@ const Home = () => {
           <div className="mb-8 relative">
             <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-white/10 relative z-10">
               <img
-                src="src/midias/Foto perfil.jpeg" 
+                src= {fotoPerfil}
                 alt="Leonardo Castro"
                 className="w-full h-full object-cover"
               />
