@@ -1,11 +1,12 @@
 import React from 'react';
 import { Download, ArrowDown } from 'lucide-react';
 import fotoPerfil from '../midias/foto-perfil.jpeg';
+import curriculoPdf from '../midias/CurriculoLeonardoCastro.pdf'
 
 const Home = () => {
   const handleDownloadCV = () => {
    
-    const cvUrl = 'src/midias/Curriculo Leonardo Castro.pdf';
+    const cvUrl = curriculoPdf;
     window.open(cvUrl, '_blank');
   };
 
